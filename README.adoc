@@ -1,11 +1,8 @@
-:ci: https://github.com/smallrye/smallrye-async-api/actions?query=workflow%3A%22SmallRye+Build%22
-:sonar: https://sonarcloud.io/dashboard?id=smallrye_smallrye-async-api
-
-image:https://github.com/smallrye/smallrye-async-api/workflows/SmallRye%20Build/badge.svg?branch=master[link={ci}]
-image:https://sonarcloud.io/api/project_badges/measure?project=smallrye_smallrye-async-api&metric=alert_status["Quality Gate Status", link={sonar}]
+image:https://github.com/smallrye/smallrye-async-api/workflows/SmallRye%20Build/badge.svg?branch=master[link=https://github.com/smallrye/smallrye-async-api/actions?query=workflow%3A%22SmallRye+Build%22]
+image:https://sonarcloud.io/api/project_badges/measure?project=smallrye_smallrye-async-api&metric=alert_status["Quality Gate Status", link=https://sonarcloud.io/dashboard?id=smallrye_smallrye-async-api]
 image:https://img.shields.io/github/license/smallrye/smallrye-async-api.svg["License", link="http://www.apache.org/licenses/LICENSE-2.0"]
 
-= SmallRye AsyncAPI
+= SmallRye Async API
 
 SmallRye AsyncAPI is a proof of concept specification and implementation of Microprofile + AsyncAPI integration.
 
@@ -20,10 +17,9 @@ mvn verify
 
 === Project structure
 
-* link:spec/api[] - Specification classes and interfaces.
-* link:spec/tck[] - Specification TCK tests.
+* link:api[] - Specification classes and interfaces. Parts might move to MicroProfile at some point.
+* link:tck[] - Test suite. Parts might move to MicroProfile at some point.
 * link:implementation[] - Implementation of the specification.
-* link:tck[] - Test suite to run the spec TCK against the implementation.
 
 === Contributing
 
