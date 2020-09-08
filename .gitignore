@@ -11,6 +11,7 @@ target
 .classpath
 .settings
 .metadata
+/.cache/*
 .checkstyle
 # ignore m2e annotation processing files
 .factorypath

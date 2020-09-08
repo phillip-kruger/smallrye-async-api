@@ -18,7 +18,7 @@ public class AsyncAPI {
      * The format for this string must be major.minor.patch. The patch may be suffixed by a hyphen and extra alphanumeric
      * characters.
      */
-    private String openapi;
+    private String asyncapi;
 
     /**
      * This field represents a unique universal identifier of the application the AsyncAPI document is defining.
@@ -61,12 +61,12 @@ public class AsyncAPI {
      */
     private ExternalDocs externalDocs;
 
-    public String getOpenapi() {
-        return openapi;
+    public String getAsyncapi() {
+        return asyncapi;
     }
 
-    public void setOpenapi(String openapi) {
-        this.openapi = openapi;
+    public void setAsyncapi(String asyncapi) {
+        this.asyncapi = asyncapi;
     }
 
     public String getId() {
@@ -127,7 +127,7 @@ public class AsyncAPI {
 
     @Override
     public String toString() {
-        return "AsyncAPI{" + "openapi=" + openapi + ", id=" + id + ", info=" + info + ", servers=" + servers + ", channels="
+        return "AsyncAPI{" + "asyncapi=" + asyncapi + ", id=" + id + ", info=" + info + ", servers=" + servers + ", channels="
                 + channels + ", components=" + components + ", tags=" + tags + ", externalDocs=" + externalDocs + '}';
     }
 
