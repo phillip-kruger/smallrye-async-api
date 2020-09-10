@@ -27,6 +27,15 @@ public class Contact {
      */
     private String email;
 
+    public Contact() {
+    }
+
+    public Contact(String name, URL url, String email) {
+        this.name = name;
+        this.url = url;
+        this.email = email;
+    }
+
     public String getName() {
         return name;
     }

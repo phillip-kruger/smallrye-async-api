@@ -42,6 +42,29 @@ public class Info {
      */
     private License license;
 
+    public Info() {
+    }
+
+    public Info(String title) {
+        this.title = title;
+    }
+
+    public Info(String title, String version, String description, URL termsOfService) {
+        this.title = title;
+        this.version = version;
+        this.description = description;
+        this.termsOfService = termsOfService;
+    }
+
+    public Info(String title, String version, String description, URL termsOfService, Contact contact, License license) {
+        this.title = title;
+        this.version = version;
+        this.description = description;
+        this.termsOfService = termsOfService;
+        this.contact = contact;
+        this.license = license;
+    }
+
     public String getTitle() {
         return title;
     }

@@ -1,5 +1,6 @@
 package io.smallrye.asyncapi.api.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,5 +24,32 @@ public class SecurityRequirement {
      * execution.
      * For other security scheme types, the array MUST be empty.
      */
-    private List<String> name;
+    private List<String> name = new ArrayList<>();
+
+    public SecurityRequirement() {
+    }
+
+    public SecurityRequirement(String... name) {
+        for (String n : name) {
+            addName(n);
+        }
+    }
+
+    public List<String> getName() {
+        return name;
+    }
+
+    public void setName(List<String> name) {
+        this.name = name;
+    }
+
+    public void addName(String name) {
+        this.name.add(name);
+    }
+
+    @Override
+    public String toString() {
+        return "SecurityRequirement{" + "name=" + name + '}';
+    }
+
 }

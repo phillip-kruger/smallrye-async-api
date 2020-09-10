@@ -1,4 +1,4 @@
-package io.smallrye.asyncapi.binding;
+package io.smallrye.asyncapi.binding.json;
 
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
@@ -14,7 +14,12 @@ import io.smallrye.asyncapi.api.model.AsyncAPI;
  */
 public class JsonBinding implements AsyncApiBinding {
 
-    private static final Jsonb JSONB = JsonbBuilder.create(new JsonbConfig().withFormatting(true));
+    private static JsonbConfig jsonbConfig = new JsonbConfig()
+            .withFormatting(true)
+            .withSerializers(new ServerBindingSerializer())
+            .withDeserializers(new ServerBindingDeserializer());
+
+    private static final Jsonb JSONB = JsonbBuilder.create(jsonbConfig);
 
     @Override
     public String toString(AsyncAPI asyncAPI) {

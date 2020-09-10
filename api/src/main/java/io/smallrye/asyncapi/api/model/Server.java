@@ -1,6 +1,6 @@
 package io.smallrye.asyncapi.api.model;
 
-import java.net.URL;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -20,8 +20,10 @@ public class Server {
      * REQUIRED. A URL to the target host. This URL supports Server Variables and MAY be relative,
      * to indicate that the host location is relative to the location where the AsyncAPI document is being served.
      * Variable substitutions will be made when a variable is named in {brackets}.
+     * 
+     * Because of the option to use Variable substitution, this is a String and not a URL
      */
-    private URL url;
+    private String url;
 
     /**
      * REQUIRED. The protocol this URL supports for connection. Supported protocol include,
@@ -55,13 +57,54 @@ public class Server {
      * A free-form map where the keys describe the name of the protocol and the values describe protocol-specific definitions
      * for the server.
      */
-    private ServerBindings bindings;
+    private Map<BindingKey, ServerBinding> bindings;
 
-    public URL getUrl() {
+    public Server() {
+    }
+
+    public Server(String url, String protocol) {
+        this.url = url;
+        this.protocol = protocol;
+    }
+
+    public Server(String url, String protocol, String protocolVersion, String description,
+            SecurityRequirement securityRequirement) {
+        this.url = url;
+        this.protocol = protocol;
+        this.protocolVersion = protocolVersion;
+        this.description = description;
+        this.securityRequirement = securityRequirement;
+    }
+
+    public Server(String url, String protocol, String protocolVersion, String description,
+            Map<String, ServerVariable> variables,
+            SecurityRequirement securityRequirement) {
+        this.url = url;
+        this.protocol = protocol;
+        this.protocolVersion = protocolVersion;
+        this.description = description;
+        this.variables = variables;
+        this.securityRequirement = securityRequirement;
+    }
+
+    public Server(String url, String protocol, String protocolVersion, String description,
+            Map<String, ServerVariable> variables,
+            SecurityRequirement securityRequirement,
+            Map<BindingKey, ServerBinding> bindings) {
+        this.url = url;
+        this.protocol = protocol;
+        this.protocolVersion = protocolVersion;
+        this.description = description;
+        this.variables = variables;
+        this.securityRequirement = securityRequirement;
+        this.bindings = bindings;
+    }
+
+    public String getUrl() {
         return url;
     }
 
-    public void setUrl(URL url) {
+    public void setUrl(String url) {
         this.url = url;
     }
 
@@ -97,6 +140,13 @@ public class Server {
         this.variables = variables;
     }
 
+    public void addVariable(String key, ServerVariable variable) {
+        if (this.variables == null) {
+            this.variables = new HashMap<>();
+        }
+        this.variables.put(key, variable);
+    }
+
     public SecurityRequirement getSecurityRequirement() {
         return securityRequirement;
     }
@@ -105,12 +155,19 @@ public class Server {
         this.securityRequirement = securityRequirement;
     }
 
-    public ServerBindings getBindings() {
+    public Map<BindingKey, ServerBinding> getBindings() {
         return bindings;
     }
 
-    public void setBindings(ServerBindings bindings) {
+    public void setBindings(Map<BindingKey, ServerBinding> bindings) {
         this.bindings = bindings;
+    }
+
+    public void addBinding(BindingKey bindingKey, ServerBinding binding) {
+        if (this.bindings == null) {
+            this.bindings = new HashMap<>();
+        }
+        this.bindings.put(bindingKey, binding);
     }
 
     @Override

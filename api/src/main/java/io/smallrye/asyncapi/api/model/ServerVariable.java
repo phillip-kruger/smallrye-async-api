@@ -1,5 +1,6 @@
 package io.smallrye.asyncapi.api.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,12 +32,29 @@ public class ServerVariable {
      */
     private List<String> examples;
 
+    public ServerVariable() {
+    }
+
+    public ServerVariable(List<String> enumeration, String defaultValue, String description, List<String> examples) {
+        this.enumeration = enumeration;
+        this.defaultValue = defaultValue;
+        this.description = description;
+        this.examples = examples;
+    }
+
     public List<String> getEnumeration() {
         return enumeration;
     }
 
     public void setEnumeration(List<String> enumeration) {
         this.enumeration = enumeration;
+    }
+
+    public void addEnumeration(String enumeration) {
+        if (this.enumeration == null) {
+            this.enumeration = new ArrayList<>();
+        }
+        this.enumeration.add(enumeration);
     }
 
     public String getDefaultValue() {
@@ -61,6 +79,13 @@ public class ServerVariable {
 
     public void setExamples(List<String> examples) {
         this.examples = examples;
+    }
+
+    public void addExample(String example) {
+        if (this.examples == null) {
+            this.examples = new ArrayList<>();
+        }
+        this.examples.add(example);
     }
 
     @Override

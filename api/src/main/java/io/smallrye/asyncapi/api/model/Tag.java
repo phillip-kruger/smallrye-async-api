@@ -24,6 +24,20 @@ public class Tag {
      */
     private ExternalDocs externalDocs;
 
+    public Tag() {
+    }
+
+    public Tag(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
+    public Tag(String name, String description, ExternalDocs externalDocs) {
+        this.name = name;
+        this.description = description;
+        this.externalDocs = externalDocs;
+    }
+
     public String getName() {
         return name;
     }
