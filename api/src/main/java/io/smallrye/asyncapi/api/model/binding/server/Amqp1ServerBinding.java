@@ -10,5 +10,5 @@ import io.smallrye.asyncapi.api.model.ServerBinding;
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/amqp1#server-binding-object">AMQP1 Server Bindings Object</a>
  * 
  */
-public class Amqp1ServerBinding implements ServerBinding {
+public interface Amqp1ServerBinding extends ServerBinding {
 }

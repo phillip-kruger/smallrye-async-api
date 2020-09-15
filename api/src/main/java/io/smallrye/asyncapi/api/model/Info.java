@@ -10,112 +10,29 @@ import java.net.URL;
  * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#infoObject">Info Object</a>
  * 
  */
-public class Info {
+public interface Info {
 
-    /**
-     * Required. The title of the application.
-     */
-    private String title;
+    public String getTitle();
 
-    /**
-     * Required. Provides the version of the application API (not to be confused with the specification version).
-     */
-    private String version;
+    public void setTitle(String title);
 
-    /**
-     * A short description of the application. CommonMark syntax can be used for rich text representation.
-     */
-    private String description;
+    public String getVersion();
 
-    /**
-     * A URL to the Terms of Service for the API.
-     */
-    private URL termsOfService;
+    public void setVersion(String version);
 
-    /**
-     * The contact information for the exposed API.
-     */
-    private Contact contact;
+    public String getDescription();
 
-    /**
-     * The license information for the exposed API.
-     */
-    private License license;
+    public void setDescription(String description);
 
-    public Info() {
-    }
+    public URL getTermsOfService();
 
-    public Info(String title) {
-        this.title = title;
-    }
+    public void setTermsOfService(URL termsOfService);
 
-    public Info(String title, String version, String description, URL termsOfService) {
-        this.title = title;
-        this.version = version;
-        this.description = description;
-        this.termsOfService = termsOfService;
-    }
+    public Contact getContact();
 
-    public Info(String title, String version, String description, URL termsOfService, Contact contact, License license) {
-        this.title = title;
-        this.version = version;
-        this.description = description;
-        this.termsOfService = termsOfService;
-        this.contact = contact;
-        this.license = license;
-    }
+    public void setContact(Contact contact);
 
-    public String getTitle() {
-        return title;
-    }
+    public License getLicense();
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getVersion() {
-        return version;
-    }
-
-    public void setVersion(String version) {
-        this.version = version;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public URL getTermsOfService() {
-        return termsOfService;
-    }
-
-    public void setTermsOfService(URL termsOfService) {
-        this.termsOfService = termsOfService;
-    }
-
-    public Contact getContact() {
-        return contact;
-    }
-
-    public void setContact(Contact contact) {
-        this.contact = contact;
-    }
-
-    public License getLicense() {
-        return license;
-    }
-
-    public void setLicense(License license) {
-        this.license = license;
-    }
-
-    @Override
-    public String toString() {
-        return "Info{" + "title=" + title + ", version=" + version + ", description=" + description + ", termsOfService="
-                + termsOfService + ", contact=" + contact + ", license=" + license + '}';
-    }
+    public void setLicense(License license);
 }

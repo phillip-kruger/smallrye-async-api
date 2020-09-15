@@ -10,5 +10,5 @@ import io.smallrye.asyncapi.api.model.ServerBinding;
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/nats#server-binding-object">Nats Server Bindings Object</a>
  * 
  */
-public class NatsServerBinding implements ServerBinding {
+public interface NatsServerBinding extends ServerBinding {
 }

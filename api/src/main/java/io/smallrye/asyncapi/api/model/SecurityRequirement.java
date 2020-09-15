@@ -1,6 +1,5 @@
 package io.smallrye.asyncapi.api.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,40 +15,11 @@ import java.util.List;
  * 
  * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#securityRequirementObject">Security Requirement Object</a>
  */
-public class SecurityRequirement {
+public interface SecurityRequirement {
 
-    /**
-     * Each name MUST correspond to a security scheme which is declared in the Security Schemes under the Components Object.
-     * If the security scheme is of type "oauth2" or "openIdConnect", then the value is a list of scope names required for the
-     * execution.
-     * For other security scheme types, the array MUST be empty.
-     */
-    private List<String> name = new ArrayList<>();
+    public List<String> getName();
 
-    public SecurityRequirement() {
-    }
+    public void setName(List<String> name);
 
-    public SecurityRequirement(String... name) {
-        for (String n : name) {
-            addName(n);
-        }
-    }
-
-    public List<String> getName() {
-        return name;
-    }
-
-    public void setName(List<String> name) {
-        this.name = name;
-    }
-
-    public void addName(String name) {
-        this.name.add(name);
-    }
-
-    @Override
-    public String toString() {
-        return "SecurityRequirement{" + "name=" + name + '}';
-    }
-
+    public void addName(String name);
 }

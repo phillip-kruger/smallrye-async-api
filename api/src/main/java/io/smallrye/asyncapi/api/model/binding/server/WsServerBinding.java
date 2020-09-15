@@ -9,5 +9,5 @@ import io.smallrye.asyncapi.api.model.ServerBinding;
  * 
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/websockets#server">Websocket Server Bindings Object</a>
  */
-public class WsServerBinding implements ServerBinding {
+public interface WsServerBinding extends ServerBinding {
 }

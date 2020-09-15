@@ -10,5 +10,5 @@ import io.smallrye.asyncapi.api.model.ServerBinding;
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/jms#server-binding-object">JMS Server Bindings Object</a>
  * 
  */
-public class JmsServerBinding implements ServerBinding {
+public interface JmsServerBinding extends ServerBinding {
 }

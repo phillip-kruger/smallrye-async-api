@@ -10,5 +10,5 @@ import io.smallrye.asyncapi.api.model.ServerBinding;
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/mqtt5#server-binding-object">MQTT5 Server Bindings Object</a>
  * 
  */
-public class Mqtt5ServerBinding implements ServerBinding {
+public interface Mqtt5ServerBinding extends ServerBinding {
 }

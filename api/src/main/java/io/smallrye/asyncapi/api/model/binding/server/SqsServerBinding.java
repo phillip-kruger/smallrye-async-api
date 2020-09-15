@@ -10,5 +10,5 @@ import io.smallrye.asyncapi.api.model.ServerBinding;
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/sqs#server-binding-object">SQS Server Bindings Object</a>
  * 
  */
-public class SqsServerBinding implements ServerBinding {
+public interface SqsServerBinding extends ServerBinding {
 }

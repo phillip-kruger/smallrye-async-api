@@ -10,5 +10,5 @@ import io.smallrye.asyncapi.api.model.ServerBinding;
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/sns#server-binding-object">SNS Server Bindings Object</a>
  * 
  */
-public class SnsServerBinding implements ServerBinding {
+public interface SnsServerBinding extends ServerBinding {
 }

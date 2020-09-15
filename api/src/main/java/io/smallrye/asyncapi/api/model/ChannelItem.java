@@ -9,91 +9,29 @@ import java.util.List;
  * 
  * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#channelItemObject">Channel Item Object</a>
  */
-public class ChannelItem {
+public interface ChannelItem {
 
-    /**
-     * Allows for an external definition of this channel item.
-     * The referenced structure MUST be in the format of a Channel Item Object.
-     */
-    private String ref;
+    public String getRef();
 
-    /**
-     * An optional description of this channel item. CommonMark syntax can be used for rich text representation.
-     */
-    private String description;
+    public void setRef(String ref);
 
-    /**
-     * A definition of the SUBSCRIBE operation.
-     */
-    private Operation subscribe;
+    public String getDescription();
 
-    /**
-     * A definition of the PUBLISH operation.
-     */
-    private Operation publish;
+    public void setDescription(String description);
 
-    /**
-     * A map of the parameters included in the channel name. It SHOULD be present only when using channels with expressions.
-     */
-    private List<Parameter> parameters;
+    public Operation getSubscribe();
 
-    /**
-     * A free-form map where the keys describe the name of the protocol and the values describe protocol-specific definitions
-     * for the channel.
-     */
-    private ChannelBindings bindings;
+    public void setSubscribe(Operation subscribe);
 
-    public String getRef() {
-        return ref;
-    }
+    public Operation getPublish();
 
-    public void setRef(String ref) {
-        this.ref = ref;
-    }
+    public void setPublish(Operation publish);
 
-    public String getDescription() {
-        return description;
-    }
+    public List<Parameter> getParameters();
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    public void setParameters(List<Parameter> parameters);
 
-    public Operation getSubscribe() {
-        return subscribe;
-    }
+    public ChannelBindings getBindings();
 
-    public void setSubscribe(Operation subscribe) {
-        this.subscribe = subscribe;
-    }
-
-    public Operation getPublish() {
-        return publish;
-    }
-
-    public void setPublish(Operation publish) {
-        this.publish = publish;
-    }
-
-    public List<Parameter> getParameters() {
-        return parameters;
-    }
-
-    public void setParameters(List<Parameter> parameters) {
-        this.parameters = parameters;
-    }
-
-    public ChannelBindings getBindings() {
-        return bindings;
-    }
-
-    public void setBindings(ChannelBindings bindings) {
-        this.bindings = bindings;
-    }
-
-    @Override
-    public String toString() {
-        return "ChannelItem{" + "ref=" + ref + ", description=" + description + ", subscribe=" + subscribe + ", publish="
-                + publish + ", parameters=" + parameters + ", bindings=" + bindings + '}';
-    }
+    public void setBindings(ChannelBindings bindings);
 }

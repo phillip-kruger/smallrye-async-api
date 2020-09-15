@@ -13,124 +13,38 @@ import java.util.Map;
  * 
  * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#operationObject">Operation Object</a>
  */
-public class Operation {
+public interface Operation {
 
-    /**
-     * Unique string used to identify the operation.
-     * The id MUST be unique among all operations described in the API. The operationId value is case-sensitive.
-     * Tools and libraries MAY use the operationId to uniquely identify an operation, therefore, it is RECOMMENDED to follow
-     * common programming naming conventions.
-     */
-    private String operationId;
+    public String getOperationId();
 
-    /**
-     * A short summary of what the operation is about.
-     */
-    private String summary;
+    public void setOperationId(String operationId);
 
-    /**
-     * A verbose explanation of the operation. CommonMark syntax can be used for rich text representation.
-     */
-    private String description;
+    public String getSummary();
 
-    /**
-     * A list of tags for API documentation control. Tags can be used for logical grouping of operations.
-     */
-    private List<Tag> tags;
+    public void setSummary(String summary);
 
-    /**
-     * Additional external documentation for this operation.
-     */
-    private ExternalDocs externalDocs;
+    public String getDescription();
 
-    /**
-     * A free-form map where the keys describe the name of the protocol and the values describe protocol-specific definitions
-     * for the operation.
-     */
-    private Map<String, OperationBinding> bindings;
+    public void setDescription(String description);
 
-    /**
-     * A list of traits to apply to the operation object.
-     * Traits MUST be merged into the operation object using the JSON Merge Patch algorithm in the same order they are defined
-     * here.
-     */
-    private List<OperationTraits> traits;
+    public List<Tag> getTags();
 
-    /**
-     * A definition of the message that will be published or received on this channel.
-     * oneOf is allowed here to specify multiple messages, however, a message MUST be valid only against one of the referenced
-     * message objects.
-     */
-    private Message message;
+    public void setTags(List<Tag> tags);
 
-    public String getOperationId() {
-        return operationId;
-    }
+    public ExternalDocs getExternalDocs();
 
-    public void setOperationId(String operationId) {
-        this.operationId = operationId;
-    }
+    public void setExternalDocs(ExternalDocs externalDocs);
 
-    public String getSummary() {
-        return summary;
-    }
+    public Map<String, OperationBinding> getBindings();
 
-    public void setSummary(String summary) {
-        this.summary = summary;
-    }
+    public void setBindings(Map<String, OperationBinding> bindings);
 
-    public String getDescription() {
-        return description;
-    }
+    public List<OperationTraits> getTraits();
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    public void setTraits(List<OperationTraits> traits);
 
-    public List<Tag> getTags() {
-        return tags;
-    }
+    public Message getMessage();
 
-    public void setTags(List<Tag> tags) {
-        this.tags = tags;
-    }
+    public void setMessage(Message message);
 
-    public ExternalDocs getExternalDocs() {
-        return externalDocs;
-    }
-
-    public void setExternalDocs(ExternalDocs externalDocs) {
-        this.externalDocs = externalDocs;
-    }
-
-    public Map<String, OperationBinding> getBindings() {
-        return bindings;
-    }
-
-    public void setBindings(Map<String, OperationBinding> bindings) {
-        this.bindings = bindings;
-    }
-
-    public List<OperationTraits> getTraits() {
-        return traits;
-    }
-
-    public void setTraits(List<OperationTraits> traits) {
-        this.traits = traits;
-    }
-
-    public Message getMessage() {
-        return message;
-    }
-
-    public void setMessage(Message message) {
-        this.message = message;
-    }
-
-    @Override
-    public String toString() {
-        return "Operation{" + "operationId=" + operationId + ", summary=" + summary + ", description=" + description + ", tags="
-                + tags + ", externalDocs=" + externalDocs + ", bindings=" + bindings + ", traits=" + traits + ", message="
-                + message + '}';
-    }
 }

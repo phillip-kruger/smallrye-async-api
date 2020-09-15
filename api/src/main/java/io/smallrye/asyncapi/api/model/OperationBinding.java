@@ -4,6 +4,6 @@ package io.smallrye.asyncapi.api.model;
  *
  * @author Phillip Kruger (phillip.kruger@redhat.com)
  */
-class OperationBinding {
+public interface OperationBinding {
 
 }

@@ -10,48 +10,13 @@ import java.net.URL;
  * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#externalDocumentationObject">External Documentation
  *      Object</a>
  */
-public class ExternalDocs {
+public interface ExternalDocs {
 
-    /**
-     * A short description of the target documentation.
-     */
-    private String description;
+    public String getDescription();
 
-    /**
-     * Required. The URL for the target documentation.
-     */
-    private URL url;
+    public void setDescription(String description);
 
-    public ExternalDocs() {
-    }
+    public URL getUrl();
 
-    public ExternalDocs(URL url) {
-        this.url = url;
-    }
-
-    public ExternalDocs(String description, URL url) {
-        this.description = description;
-        this.url = url;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public URL getUrl() {
-        return url;
-    }
-
-    public void setUrl(URL url) {
-        this.url = url;
-    }
-
-    @Override
-    public String toString() {
-        return "ExternalDocs{" + "description=" + description + ", url=" + url + '}';
-    }
+    public void setUrl(URL url);
 }

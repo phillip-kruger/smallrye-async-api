@@ -10,5 +10,5 @@ import io.smallrye.asyncapi.api.model.ServerBinding;
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/kafka#server">Kafka Server Bindings Object</a>
  * 
  */
-public class KafkaServerBinding implements ServerBinding {
+public interface KafkaServerBinding extends ServerBinding {
 }

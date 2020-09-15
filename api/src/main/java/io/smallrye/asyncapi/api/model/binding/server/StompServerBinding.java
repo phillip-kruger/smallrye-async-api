@@ -10,5 +10,5 @@ import io.smallrye.asyncapi.api.model.ServerBinding;
  * @see <a href="https://github.com/asyncapi/bindings/tree/master/stomp#server-binding-object">Stomp Server Bindings Object</a>
  * 
  */
-public class StompServerBinding implements ServerBinding {
+public interface StompServerBinding extends ServerBinding {
 }
