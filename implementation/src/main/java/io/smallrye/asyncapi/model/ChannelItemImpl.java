@@ -2,8 +2,6 @@ package io.smallrye.asyncapi.model;
 
 import java.util.List;
 
-import javax.json.bind.annotation.JsonbProperty;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.smallrye.asyncapi.api.model.ChannelBindings;
@@ -25,7 +23,6 @@ public class ChannelItemImpl implements ChannelItem {
      * The referenced structure MUST be in the format of a Channel Item Object.
      */
     @JsonProperty("$ref")
-    @JsonbProperty("$ref")
     private String ref;
 
     /**

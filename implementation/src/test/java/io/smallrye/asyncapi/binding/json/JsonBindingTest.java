@@ -24,7 +24,7 @@ public class JsonBindingTest {
 
         System.err.println("document = \n" + document);
 
-        assertThat(document).contains("\"asyncapi\": \"2.0.0\"");
+        assertThat(document).contains("\"asyncapi\" : \"2.0.0\"");
     }
 
 }

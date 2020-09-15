@@ -1,8 +1,9 @@
 package io.smallrye.asyncapi.binding.json;
 
-import javax.json.bind.Jsonb;
-import javax.json.bind.JsonbBuilder;
-import javax.json.bind.JsonbConfig;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 
 import io.smallrye.asyncapi.api.AsyncApiBinding;
 import io.smallrye.asyncapi.api.model.AsyncAPI;
@@ -14,21 +15,29 @@ import io.smallrye.asyncapi.api.model.AsyncAPI;
  */
 public class JsonBinding implements AsyncApiBinding {
 
-    private static JsonbConfig jsonbConfig = new JsonbConfig()
-            .withFormatting(true)
-            .withSerializers(new ServerBindingSerializer())
-            .withDeserializers(new ServerBindingDeserializer());
+    private final ObjectMapper mapper;
 
-    private static final Jsonb JSONB = JsonbBuilder.create(jsonbConfig);
+    public JsonBinding() {
+        this.mapper = new ObjectMapper();
+        this.mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        this.mapper.enable(SerializationFeature.INDENT_OUTPUT);
+    }
 
     @Override
     public String toString(AsyncAPI asyncAPI) {
-        return JSONB.toJson(asyncAPI);
+        try {
+            return mapper.writeValueAsString(asyncAPI);
+        } catch (JsonProcessingException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
     @Override
     public AsyncAPI fromString(String document) {
-        return JSONB.fromJson(document, AsyncAPI.class);
+        try {
+            return mapper.readValue(document, AsyncAPI.class);
+        } catch (JsonProcessingException ex) {
+            throw new RuntimeException(ex);
+        }
     }
-
 }
