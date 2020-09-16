@@ -57,7 +57,7 @@ public class ServerImpl implements Server {
      * The list of values includes alternative security requirement objects that can be used.
      * Only one of the security requirement objects need to be satisfied to authorize a connection or operation.
      */
-    private SecurityRequirement securityRequirement;
+    private SecurityRequirement securityRequirement; // private List<Map<String, List<String>>> security; ?
 
     /**
      * A free-form map where the keys describe the name of the protocol and the values describe protocol-specific definitions

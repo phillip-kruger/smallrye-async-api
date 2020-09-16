@@ -61,7 +61,7 @@ public class OperationImpl implements Operation {
      * Traits MUST be merged into the operation object using the JSON Merge Patch algorithm in the same order they are defined
      * here.
      */
-    private List<OperationTraits> traits;
+    private List<OperationTraits> traits; // Or Reference ?? Maybe Object ?
 
     /**
      * A definition of the message that will be published or received on this channel.

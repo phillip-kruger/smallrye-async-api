@@ -20,6 +20,10 @@ public interface AsyncAPI {
 
     public void setId(String id);
 
+    public String getDefaultContentType();
+
+    public void setDefaultContentType(String defaultContentType);
+
     public Info getInfo();
 
     public void setInfo(Info info);

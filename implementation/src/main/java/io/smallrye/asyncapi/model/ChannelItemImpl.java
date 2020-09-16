@@ -43,13 +43,13 @@ public class ChannelItemImpl implements ChannelItem {
     /**
      * A map of the parameters included in the channel name. It SHOULD be present only when using channels with expressions.
      */
-    private List<Parameter> parameters;
+    private List<Parameter> parameters; // private Map<String, Object> parameters;
 
     /**
      * A free-form map where the keys describe the name of the protocol and the values describe protocol-specific definitions
      * for the channel.
      */
-    private ChannelBindings bindings;
+    private ChannelBindings bindings; // private Map<String, ChannelBinding> bindings;
 
     @Override
     public String getRef() {

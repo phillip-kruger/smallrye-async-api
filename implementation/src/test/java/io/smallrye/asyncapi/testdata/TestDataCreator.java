@@ -57,6 +57,7 @@ public class TestDataCreator {
             AsyncAPI asyncAPI = new AsyncAPIImpl();
             asyncAPI.setAsyncapi("2.0.0");
             asyncAPI.setId("io.smallrye.asyncapi.test");
+            asyncAPI.setDefaultContentType("application/json");
             asyncAPI.setInfo(createInfo());
             asyncAPI.setTags(createRootTags());
             asyncAPI.setExternalDocs(new ExternalDocsImpl("documentation", new URL("http://www.documentation.com/")));

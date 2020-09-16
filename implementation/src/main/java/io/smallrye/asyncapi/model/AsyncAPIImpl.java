@@ -36,6 +36,14 @@ public class AsyncAPIImpl implements AsyncAPI {
     private String id;
 
     /**
+     * A string representing the default content type to use when encoding/decoding a message’s payload.
+     * The value MUST be a specific media type (e.g. application/json). This value MUST be used by schema parsers when the
+     * contentType property is omitted.
+     * In case a message can’t be encoded/decoded using this value, schema parsers MUST use their default content type.
+     */
+    private String defaultContentType;
+
+    /**
      * The object provides metadata about the API. The metadata can be used by the clients if needed.
      */
     private Info info;
@@ -86,6 +94,16 @@ public class AsyncAPIImpl implements AsyncAPI {
     @Override
     public void setId(String id) {
         this.id = id;
+    }
+
+    @Override
+    public String getDefaultContentType() {
+        return this.defaultContentType;
+    }
+
+    @Override
+    public void setDefaultContentType(String defaultContentType) {
+        this.defaultContentType = defaultContentType;
     }
 
     @Override
