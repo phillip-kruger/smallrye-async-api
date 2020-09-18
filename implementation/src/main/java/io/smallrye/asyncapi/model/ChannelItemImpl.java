@@ -1,10 +1,11 @@
 package io.smallrye.asyncapi.model;
 
 import java.util.List;
+import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import io.smallrye.asyncapi.api.model.ChannelBindings;
+import io.smallrye.asyncapi.api.model.ChannelBinding;
 import io.smallrye.asyncapi.api.model.ChannelItem;
 import io.smallrye.asyncapi.api.model.Operation;
 import io.smallrye.asyncapi.api.model.Parameter;
@@ -49,7 +50,7 @@ public class ChannelItemImpl implements ChannelItem {
      * A free-form map where the keys describe the name of the protocol and the values describe protocol-specific definitions
      * for the channel.
      */
-    private ChannelBindings bindings; // private Map<String, ChannelBinding> bindings;
+    private Map<String, ChannelBinding> bindings;
 
     @Override
     public String getRef() {
@@ -111,12 +112,12 @@ public class ChannelItemImpl implements ChannelItem {
     }
 
     @Override
-    public ChannelBindings getBindings() {
+    public Map<String, ChannelBinding> getBindings() {
         return bindings;
     }
 
     @Override
-    public void setBindings(ChannelBindings bindings) {
+    public void setBindings(Map<String, ChannelBinding> bindings) {
         this.bindings = bindings;
         this.ref = null;
     }

@@ -1,6 +1,7 @@
 package io.smallrye.asyncapi.api.model;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Describes the operations available on a single channel.
@@ -31,7 +32,7 @@ public interface ChannelItem {
 
     public void setParameters(List<Parameter> parameters);
 
-    public ChannelBindings getBindings();
+    public Map<String, ChannelBinding> getBindings();
 
-    public void setBindings(ChannelBindings bindings);
+    public void setBindings(Map<String, ChannelBinding> bindings);
 }

@@ -10,7 +10,7 @@ import java.util.Map;
 
 import io.smallrye.asyncapi.api.model.AsyncAPI;
 import io.smallrye.asyncapi.api.model.BindingKey;
-import io.smallrye.asyncapi.api.model.ChannelBindings;
+import io.smallrye.asyncapi.api.model.ChannelBinding;
 import io.smallrye.asyncapi.api.model.ChannelItem;
 import io.smallrye.asyncapi.api.model.Components;
 import io.smallrye.asyncapi.api.model.Contact;
@@ -95,7 +95,7 @@ public class TestDataCreator {
         return channelItem;
     }
 
-    private static ChannelBindings createChannelBindings() {
+    private static Map<String, ChannelBinding> createChannelBindings() {
         // ChannelBindings channelBindings = new ChannelBindings();     
         return null;
     }
