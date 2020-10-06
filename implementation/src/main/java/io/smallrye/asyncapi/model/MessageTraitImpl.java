@@ -3,9 +3,13 @@ package io.smallrye.asyncapi.model;
 import java.util.List;
 import java.util.Map;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.smallrye.asyncapi.api.model.CorrelationId;
 import io.smallrye.asyncapi.api.model.ExternalDocs;
 import io.smallrye.asyncapi.api.model.MessageBinding;
 import io.smallrye.asyncapi.api.model.MessageTrait;
+import io.smallrye.asyncapi.api.model.Schema;
 import io.smallrye.asyncapi.api.model.Tag;
 
 /**
@@ -18,21 +22,28 @@ import io.smallrye.asyncapi.api.model.Tag;
 public class MessageTraitImpl implements MessageTrait {
 
     /**
+     * Allows for an external definition of this channel item.
+     * The referenced structure MUST be in the format of a Message Trait Object.
+     */
+    @JsonProperty("$ref")
+    private String ref;
+
+    /**
      * Schema definition of the application headers. Schema MUST be of type “object”. It MUST NOT define the protocol headers.
      * Schema Object | Reference Object
      */
-    private Object headers;
+    private Schema headers;
 
     /**
      * Definition of the message payload. It can be of any type but defaults to Schema object.
      */
-    private Object payload;
+    private Schema payload;
 
     /**
      * Definition of the correlation ID used for message tracing or matching.
      * Correlation ID Object | Reference Object
      */
-    private Object correlationId;
+    private CorrelationId correlationId;
 
     /**
      * A string containing the name of the schema format used to define the message payload.
@@ -100,22 +111,32 @@ public class MessageTraitImpl implements MessageTrait {
     private List<MessageTrait> traits;
 
     @Override
-    public Object getHeaders() {
+    public String getRef() {
+        return this.ref;
+    }
+
+    @Override
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
+
+    @Override
+    public Schema getHeaders() {
         return headers;
     }
 
     @Override
-    public void setHeaders(Object headers) {
+    public void setHeaders(Schema headers) {
         this.headers = headers;
     }
 
     @Override
-    public Object getCorrelationId() {
+    public CorrelationId getCorrelationId() {
         return correlationId;
     }
 
     @Override
-    public void setCorrelationId(Object correlationId) {
+    public void setCorrelationId(CorrelationId correlationId) {
         this.correlationId = correlationId;
     }
 

@@ -1,5 +1,7 @@
 package io.smallrye.asyncapi.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import io.smallrye.asyncapi.api.model.Parameter;
 import io.smallrye.asyncapi.api.model.Schema;
 
@@ -11,6 +13,13 @@ import io.smallrye.asyncapi.api.model.Schema;
  * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#parameterObject">Parameter Object</a>
  */
 public class ParameterImpl implements Parameter {
+
+    /**
+     * Allows for an external definition of this channel item.
+     * The referenced structure MUST be in the format of a Message Trait Object.
+     */
+    @JsonProperty("$ref")
+    private String ref;
 
     /**
      * A verbose explanation of the parameter. CommonMark syntax can be used for rich text representation.
@@ -28,6 +37,16 @@ public class ParameterImpl implements Parameter {
      * to validate this parameter but, instead, the schema property MUST be used.
      */
     public String location;
+
+    @Override
+    public String getRef() {
+        return ref;
+    }
+
+    @Override
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
 
     @Override
     public String getDescription() {

@@ -14,24 +14,24 @@ import java.util.Map;
 public interface Components {
 
     // Schema or reference 
-    public Map<String, Object> getSchemas();
+    public Map<String, Schema> getSchemas();
 
-    public void setSchemas(Map<String, Object> schemas);
+    public void setSchemas(Map<String, Schema> schemas);
 
     // Message or reference
-    public Map<String, Object> getMessages();
+    public Map<String, Message> getMessages();
 
-    public void setMessages(Map<String, Object> messages);
+    public void setMessages(Map<String, Message> messages);
 
     // SecurityScheme or reference
-    public Map<String, Object> getSecuritySchemes();
+    public Map<String, SecurityScheme> getSecuritySchemes();
 
-    public void setSecuritySchemes(Map<String, Object> securitySchemes);
+    public void setSecuritySchemes(Map<String, SecurityScheme> securitySchemes);
 
     // Parameter or reference
-    public Map<String, Object> getParameters();
+    public Map<String, Parameter> getParameters();
 
-    public void setParameters(Map<String, Object> parameters);
+    public void setParameters(Map<String, Parameter> parameters);
 
     // CorrelationId or reference
     public Map<String, CorrelationId> getCorrelationIds();

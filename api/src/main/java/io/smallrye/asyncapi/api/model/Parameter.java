@@ -7,7 +7,7 @@ package io.smallrye.asyncapi.api.model;
  * 
  * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#parameterObject">Parameter Object</a>
  */
-public interface Parameter {
+public interface Parameter extends Referencable {
 
     public String getDescription();
 

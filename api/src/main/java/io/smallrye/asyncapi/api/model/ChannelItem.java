@@ -10,11 +10,7 @@ import java.util.Map;
  * 
  * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#channelItemObject">Channel Item Object</a>
  */
-public interface ChannelItem {
-
-    public String getRef();
-
-    public void setRef(String ref);
+public interface ChannelItem extends Referencable {
 
     public String getDescription();
 

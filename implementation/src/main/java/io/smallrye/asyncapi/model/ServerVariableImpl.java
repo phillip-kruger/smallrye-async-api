@@ -3,6 +3,8 @@ package io.smallrye.asyncapi.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import io.smallrye.asyncapi.api.model.ServerVariable;
 
 /**
@@ -17,11 +19,13 @@ public class ServerVariableImpl implements ServerVariable {
     /**
      * An enumeration of string values to be used if the substitution options are from a limited set.
      */
+    @JsonProperty("enum")
     private List<String> enumeration;
 
     /**
      * The default value to use for substitution, and to send, if an alternate value is not supplied.
      */
+    @JsonProperty("default")
     private String defaultValue;
 
     /**

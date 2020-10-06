@@ -11,15 +11,15 @@ import java.util.Map;
  * 
  * @see <a href="https://www.asyncapi.com/docs/specifications/2.0.0/#messageTraitObject">Message Trait Object</a>
  */
-public interface MessageTrait {
+public interface MessageTrait extends Referencable {
 
-    public Object getHeaders();
+    public Schema getHeaders();
 
-    public void setHeaders(Object headers);
+    public void setHeaders(Schema headers);
 
-    public Object getCorrelationId();
+    public CorrelationId getCorrelationId();
 
-    public void setCorrelationId(Object correlationId);
+    public void setCorrelationId(CorrelationId correlationId);
 
     public String getSchemaFormat();
 

@@ -24,8 +24,7 @@ import io.smallrye.asyncapi.api.model.SecurityRequirement;
 import io.smallrye.asyncapi.api.model.Server;
 import io.smallrye.asyncapi.api.model.ServerVariable;
 import io.smallrye.asyncapi.api.model.Tag;
-import io.smallrye.asyncapi.api.model.binding.server.LastWill;
-import io.smallrye.asyncapi.api.model.binding.server.MqttServerBinding;
+import io.smallrye.asyncapi.api.model.binding.mqtt.MqttServerBinding;
 import io.smallrye.asyncapi.model.AsyncAPIImpl;
 import io.smallrye.asyncapi.model.ChannelItemImpl;
 import io.smallrye.asyncapi.model.ContactImpl;
@@ -36,8 +35,7 @@ import io.smallrye.asyncapi.model.SecurityRequirementImpl;
 import io.smallrye.asyncapi.model.ServerImpl;
 import io.smallrye.asyncapi.model.ServerVariableImpl;
 import io.smallrye.asyncapi.model.TagImpl;
-import io.smallrye.asyncapi.model.binding.server.LastWillImpl;
-import io.smallrye.asyncapi.model.binding.server.MqttServerBindingImpl;
+import io.smallrye.asyncapi.model.binding.mqtt.MqttServerBindingImpl;
 
 /**
  * Creating some test data
@@ -58,10 +56,10 @@ public class TestDataCreator {
             asyncAPI.setAsyncapi("2.0.0");
             asyncAPI.setId("io.smallrye.asyncapi.test");
             asyncAPI.setDefaultContentType("application/json");
-            asyncAPI.setInfo(createInfo());
-            asyncAPI.setTags(createRootTags());
-            asyncAPI.setExternalDocs(new ExternalDocsImpl("documentation", new URL("http://www.documentation.com/")));
-            asyncAPI.setServers(createServers());
+            asyncAPI.setInfo(createInfo()); // ok
+            asyncAPI.setTags(createRootTags()); //ok
+            asyncAPI.setExternalDocs(new ExternalDocsImpl("documentation", new URL("http://www.documentation.com/"))); //ok
+            asyncAPI.setServers(createServers()); //ok
             asyncAPI.setComponents(createComponents());
             asyncAPI.setChannels(createChannels());
             return asyncAPI;
@@ -136,7 +134,11 @@ public class TestDataCreator {
         serverVariables.put("path", path);
         SecurityRequirement securityRequirement = new SecurityRequirementImpl("oauth");
 
-        LastWill lastWill = new LastWillImpl("/last-wills", 2, false);
+        MqttServerBinding.LastWill lastWill = new MqttServerBinding.LastWill();
+        lastWill.setMessage("Here my last will");
+        lastWill.setTopic("/last-wills");
+        lastWill.setQos(2);
+        lastWill.setRetain(false);
 
         MqttServerBinding mqttBinding = new MqttServerBindingImpl("guest", true, lastWill, 60, "0.1.0");
         Server test = new ServerImpl("http://www.test.com:{port}/{path}", Protocol.MQTT, "MQTT 3.1.1",

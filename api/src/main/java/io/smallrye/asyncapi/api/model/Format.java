@@ -16,15 +16,15 @@ package io.smallrye.asyncapi.api.model;
  */
 public enum Format {
 
-    INTEGER, // integer 	int32 	signed 32 bits
-    LONG, // integer 	int64 	signed 64 bits
-    FLOAT, // number 	float 	
-    DOUBLE, // number 	double 	
-    STRING, // string 		
-    BYTE, // string 	byte 	base64 encoded characters
-    BINARY, // string 	binary 	any sequence of octets
-    BOOLEAN, // boolean 		
-    DATE, // string 	date 	As defined by full-date - RFC3339
-    DATE_TIME, // string 	date-time 	As defined by date-time - RFC3339
-    PASSWORD // string 	password 	Used to hint UIs the input needs to be obscured.
+    INTEGER, //     integer 	int32       signed 32 bits
+    LONG, //        integer     int64       signed 64 bits
+    FLOAT, //       number 	float 	
+    DOUBLE, //      number 	double 	
+    STRING, //      string 		
+    BYTE, //        string 	byte        base64 encoded characters
+    BINARY, //      string 	binary      any sequence of octets
+    BOOLEAN, //     boolean 		
+    DATE, //        string 	date        As defined by full-date - RFC3339
+    DATE_TIME, //   string 	date-time   As defined by date-time - RFC3339
+    PASSWORD //     string 	password    Used to hint UIs the input needs to be obscured.
 }

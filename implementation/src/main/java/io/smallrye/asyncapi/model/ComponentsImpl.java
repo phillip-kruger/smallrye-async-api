@@ -5,10 +5,14 @@ import java.util.Map;
 import io.smallrye.asyncapi.api.model.ChannelBinding;
 import io.smallrye.asyncapi.api.model.Components;
 import io.smallrye.asyncapi.api.model.CorrelationId;
+import io.smallrye.asyncapi.api.model.Message;
 import io.smallrye.asyncapi.api.model.MessageBinding;
 import io.smallrye.asyncapi.api.model.MessageTrait;
 import io.smallrye.asyncapi.api.model.OperationBinding;
 import io.smallrye.asyncapi.api.model.OperationTraits;
+import io.smallrye.asyncapi.api.model.Parameter;
+import io.smallrye.asyncapi.api.model.Schema;
+import io.smallrye.asyncapi.api.model.SecurityScheme;
 import io.smallrye.asyncapi.api.model.ServerBinding;
 
 /**
@@ -22,10 +26,10 @@ import io.smallrye.asyncapi.api.model.ServerBinding;
  */
 public class ComponentsImpl implements Components {
 
-    private Map<String, Object> schemas;
-    private Map<String, Object> messages;
-    private Map<String, Object> securitySchemes;
-    private Map<String, Object> parameters;
+    private Map<String, Schema> schemas;
+    private Map<String, Message> messages;
+    private Map<String, SecurityScheme> securitySchemes;
+    private Map<String, Parameter> parameters;
     private Map<String, CorrelationId> correlationIds;
     private Map<String, OperationTraits> operationTraits;
     private Map<String, MessageTrait> messageTraits;
@@ -35,42 +39,42 @@ public class ComponentsImpl implements Components {
     private Map<String, MessageBinding> messageBindings;
 
     @Override
-    public Map<String, Object> getSchemas() {
+    public Map<String, Schema> getSchemas() {
         return schemas;
     }
 
     @Override
-    public void setSchemas(Map<String, Object> schemas) {
+    public void setSchemas(Map<String, Schema> schemas) {
         this.schemas = schemas;
     }
 
     @Override
-    public Map<String, Object> getMessages() {
+    public Map<String, Message> getMessages() {
         return messages;
     }
 
     @Override
-    public void setMessages(Map<String, Object> messages) {
+    public void setMessages(Map<String, Message> messages) {
         this.messages = messages;
     }
 
     @Override
-    public Map<String, Object> getSecuritySchemes() {
+    public Map<String, SecurityScheme> getSecuritySchemes() {
         return securitySchemes;
     }
 
     @Override
-    public void setSecuritySchemes(Map<String, Object> securitySchemes) {
+    public void setSecuritySchemes(Map<String, SecurityScheme> securitySchemes) {
         this.securitySchemes = securitySchemes;
     }
 
     @Override
-    public Map<String, Object> getParameters() {
+    public Map<String, Parameter> getParameters() {
         return parameters;
     }
 
     @Override
-    public void setParameters(Map<String, Object> parameters) {
+    public void setParameters(Map<String, Parameter> parameters) {
         this.parameters = parameters;
     }
 
